@@ -7,8 +7,21 @@ export const Nav = () => {
                 <img src="" className="brand-img" alt="" />
                 <input type="text" className="search-box" placeholder="search" />
                 <div className="nav-items">
-                    <img src="" className="icon" alt="myposts" />
-                    <img src="" className="icon" alt="add" />
+                    <a href='#' className="icon" alt="myposts">
+                        <span>My Posts</span>
+                    </a>
+                    <a href='#' className="icon" alt="myposts">
+                        <span>Add Post</span>
+                    </a>
+                    <a href='#' className="icon" alt="myposts">
+                        <span>Logout</span>
+                    </a>
+                    <a href='#' className="icon" alt="myposts">
+                        <span>Login</span>
+                    </a>
+                    <a href='#' className="icon" alt="myposts">
+                        <span>Register</span>
+                    </a>
                     <div className="icon user-profile" />
                 </div>
             </div>

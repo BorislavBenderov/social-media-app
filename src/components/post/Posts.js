@@ -1,4 +1,3 @@
-import './posts.css';
 import PH from '../post/cover.png';
 
 export const Posts = () => {

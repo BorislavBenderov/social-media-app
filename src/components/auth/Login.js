@@ -1,5 +1,3 @@
-import './auth.css';
-
 export const Login = () => {
     return (
         <form className='auth'>

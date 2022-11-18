@@ -8,8 +8,8 @@ export const Register = () => {
             <input type="password" placeholder="Password" id="password" name="password" />
             <label htmlFor="repeatPassword"></label>
             <input type="password" placeholder="Repeat Password" id="repeatPassword" name="repeatPassword" />
-            <label htmlFor="imageUrl"></label>
-            <input type="file" placeholder="Choose a file" id="imageUrl" name="imageUrl"/>
+            <label htmlFor="userImageUrl"></label>
+            <input type="file" placeholder="Choose a file" id="userImageUrl" name="userImageUrl"/>
             <button type="submit">Register</button>
         </form>
     );

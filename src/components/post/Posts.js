@@ -1,8 +1,12 @@
+import { useContext } from 'react';
+import { AuthContext } from '../../contexts/AuthContext';
 import PH from '../post/cover.png';
 
 export const Posts = () => {
+    const { loggedUser } = useContext(AuthContext);
+    console.log(loggedUser);
     return (
-        <section class="main">
+        <section className="main">
             <div className="wrapper">
                 <div className="left-col">
                     <div className="post">

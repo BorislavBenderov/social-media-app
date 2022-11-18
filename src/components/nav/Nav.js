@@ -1,10 +1,13 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../contexts/AuthContext";
 
 export const Nav = () => {
+    const { loggedUser } = useContext(AuthContext);
     return (
         <nav className="navbar">
             <div className="nav-wrapper">
-                <img src="" className="brand-img" alt="" />
+                <img src={loggedUser?.photoURL} className="brand-img" alt="" />
                 <input type="text" className="search-box" placeholder="search" />
                 <div className="nav-items">
                     <Link to='/myposts' className="icon" alt="myposts">
@@ -22,7 +25,6 @@ export const Nav = () => {
                     <Link to='/register' className="icon" alt="myposts">
                         <span>Register</span>
                     </Link>
-                    <div className="icon user-profile" />
                 </div>
             </div>
         </nav>

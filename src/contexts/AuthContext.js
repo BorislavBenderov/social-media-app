@@ -11,18 +11,16 @@ export const AuthContextProvider = ({ children }) => {
         const unsub = onAuthStateChanged(auth, (user) => {
             if (user) {
                 setLoggedUser(user);
-            } else {
-                setLoggedUser(null);
             }
         })
         return () => {
             unsub();
         }
     }, []);
-}
 
-return (
-    <AuthContext.Provider value={{ loggedUser, auth }}>
-        {children}
-    </AuthContext.Provider>
-);
+    return (
+        <AuthContext.Provider value={{ loggedUser, auth }}>
+            {children}
+        </AuthContext.Provider>
+    );
+}

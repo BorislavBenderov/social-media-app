@@ -1,22 +1,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
 
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-*:focus{
+*:focus {
     outline: none;
 }
 
-body{
+body {
     width: 100%;
     background: #fafafa;
     font-family: 'roboto', sans-serif;
 }
 
-.navbar{
+.navbar {
     position: fixed;
     top: 0;
     left: 0;
@@ -29,7 +29,7 @@ body{
     padding: 5px 0;
 }
 
-.nav-wrapper{
+.nav-wrapper {
     width: 70%;
     max-width: 1000px;
     height: 100%;
@@ -38,12 +38,16 @@ body{
     align-items: center;
 }
 
-.brand-img{
+.nav-wrapper>img {
+    border-radius: 50%;
+}
+
+.brand-img {
     height: 100%;
     margin-top: 5px;
 }
 
-.search-box{
+.search-box {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
@@ -57,23 +61,23 @@ body{
     text-transform: capitalize;
 }
 
-.search-box::placeholder{
+.search-box::placeholder {
     color: rgba(0, 0, 0, 0.5);
 }
 
-.nav-items{
+.nav-items {
     height: 22px;
     position: relative;
 }
 
-.icon{
+.icon {
     height: 100%;
     cursor: pointer;
     margin: 0 10px;
     display: inline-block;
 }
 
-.user-profile{
+.user-profile {
     width: 22px;
     border-radius: 50%;
     background-size: cover;

@@ -21,6 +21,9 @@ export const Nav = () => {
         <nav className="navbar">
             <div className="nav-wrapper">
                 <img src={loggedUser?.photoURL} className="brand-img" alt="" />
+                <Link to='/' className="icon" alt="myposts">
+                    <span>Home</span>
+                </Link>
                 <input type="text" className="search-box" placeholder="search" />
                 <div className="nav-items">
                     {loggedUser

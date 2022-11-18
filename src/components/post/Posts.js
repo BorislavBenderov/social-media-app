@@ -4,7 +4,7 @@ import PH from '../post/cover.png';
 
 export const Posts = () => {
     const { loggedUser } = useContext(AuthContext);
-    console.log(loggedUser);
+
     return (
         <section className="main">
             <div className="wrapper">

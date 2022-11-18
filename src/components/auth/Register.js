@@ -29,26 +29,29 @@ export const Register = () => {
         setPersistence(auth, browserSessionPersistence)
             .then(async () => {
                 const res = await createUserWithEmailAndPassword(auth, email, password);
-                const storageRef = ref(storage, userName);
+                const storageRef = ref(storage, `/users/${userName}`);
                 const uploadTask = uploadBytesResumable(storageRef, userImageUrl);
-                uploadTask.on(
+                uploadTask.on('state_changed',
+                    (snapshot) => {
+                    },
                     (err) => {
                         alert(err.message);
                     },
                     () => {
-                        getDownloadURL(uploadTask.snapshot.ref).then(async (downloadUrl) => {
-                            await updateProfile(res.user, {
-                                displayName: userName,
-                                photoURL: downloadUrl
-                            });
-                            await setDoc(doc(database, 'users', res.user.uid), {
-                                displayName: userName,
-                                userImageUrl: downloadUrl,
-                                uid: res.user.uid
+                        getDownloadURL(uploadTask.snapshot.ref).
+                            then((downloadUrl) => {
+                                updateProfile(res.user, {
+                                    displayName: userName,
+                                    photoURL: downloadUrl
+                                });
+                                setDoc(doc(database, 'users', res.user.uid), {
+                                    displayName: userName,
+                                    userImageUrl: downloadUrl,
+                                    uid: res.user.uid
+                                })
                             })
-                        })
                     })
-                    navigate('/');
+                navigate('/');
             })
             .catch((err) => {
                 alert(err.message);

@@ -1,9 +1,21 @@
 import PH from '../post/cover.png';
 import { AuthContext } from '../../contexts/AuthContext';
 import { useContext } from 'react';
+import { deleteDoc, doc } from 'firebase/firestore';
+import { database } from '../../firebaseConfig';
 
-export const Post = ( {post} ) => {
+export const Post = ({ post }) => {
     const { loggedUser } = useContext(AuthContext);
+
+    const isOwner = loggedUser?.uid === post.ownerId;
+
+    const onDelete = async () => {
+        const confirmation = window.confirm('Are you sure you want to delete this post?');
+
+        if (confirmation) {
+            await deleteDoc(doc(database, 'posts', post.id));
+        }
+    }
 
     return (
         <div className="post">
@@ -14,9 +26,12 @@ export const Post = ( {post} ) => {
                     </div>
                     <p className="username">{post.profileName}</p>
                 </div>
-                <img src={PH} className="options" alt="" />
+                {isOwner
+                    ? <a className="options" onClick={onDelete}>Delete</a>
+                    : ''}
+
             </div>
-            <img src={PH} className="post-image" alt="" />
+            <img src={post.imageUrl} className="post-image" alt="" />
             <div className="post-content">
                 <div className="reaction-wrapper">
                     <img src={PH} className="icon" alt="" />

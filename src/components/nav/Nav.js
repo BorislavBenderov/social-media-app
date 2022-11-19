@@ -20,7 +20,6 @@ export const Nav = () => {
     return (
         <nav className="navbar">
             <div className="nav-wrapper">
-                <img src={loggedUser?.photoURL} className="brand-img" alt="" />
                 <Link to='/' className="icon" alt="myposts">
                     <span>Home</span>
                 </Link>

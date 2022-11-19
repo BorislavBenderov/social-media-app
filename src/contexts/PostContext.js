@@ -6,6 +6,7 @@ export const PostContext = createContext();
 
 export const PostContextProvider = ({ children }) => {
     const [posts, setPosts] = useState([]);
+    const [select, setSelect] = useState(null);
 
     useEffect(() => {
         const q = query(collection(database, 'posts'), orderBy("timestamp", "desc"));
@@ -17,7 +18,7 @@ export const PostContextProvider = ({ children }) => {
     }, []);
 
     return (
-        <PostContext.Provider value={{ posts }}>
+        <PostContext.Provider value={{ posts, select, setSelect }}>
             {children}
         </PostContext.Provider>
     );

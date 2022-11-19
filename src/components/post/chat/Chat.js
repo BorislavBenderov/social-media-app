@@ -1,6 +1,7 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../../../contexts/AuthContext";
 import { UserContext } from "../../../contexts/UserContext";
+import { ChatBox } from './ChatBox';
 import { Users } from "./Users";
 
 export const Chat = () => {
@@ -21,7 +22,6 @@ export const Chat = () => {
             </div>
             <p className="suggestion-text">Chat</p>
             {otherUsers.map(user => <Users key={user.uid} user={user}/>)}
-            
         </div>
 
     );

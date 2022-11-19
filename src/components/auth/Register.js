@@ -48,7 +48,8 @@ export const Register = () => {
                                     displayName: userName,
                                     userImageUrl: downloadUrl,
                                     uid: res.user.uid
-                                })
+                                });
+                                setDoc(doc(database, 'userChats', res.user.uid), {})
                             })
                     })
                 navigate('/');

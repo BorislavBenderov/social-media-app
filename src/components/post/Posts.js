@@ -1,9 +1,12 @@
 import { useContext } from 'react';
+import { AuthContext } from '../../contexts/AuthContext';
 import { PostContext } from '../../contexts/PostContext';
+import { Chat } from './chat/Chat';
 import { Post } from './Post';
 
 export const Posts = () => {
     const { posts } = useContext(PostContext);
+    const { loggedUser } = useContext(AuthContext);
 
     return (
         <section className="main">
@@ -13,6 +16,9 @@ export const Posts = () => {
                         ? posts.map(post => <Post key={post.id} post={post} />)
                         : <p>No posts in database!</p>}
                 </div>
+                {loggedUser
+                    ? <Chat />
+                    : ''}
             </div>
         </section>
     );

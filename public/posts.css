@@ -150,3 +150,23 @@
 .reaction-wrapper .icon.save {
     margin-left: auto;
 }
+
+.comment {
+    display: flex;
+    margin: 10px 0;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.comment span {
+    margin-left: 10px;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.comment img {
+    height: 20px;
+    width: 20px;
+    border: none;
+    border-radius: 50%;
+}

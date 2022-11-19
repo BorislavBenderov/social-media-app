@@ -3,6 +3,8 @@ import { AuthContext } from '../../contexts/AuthContext';
 import { useContext } from 'react';
 import { deleteDoc, doc } from 'firebase/firestore';
 import { database } from '../../firebaseConfig';
+import { Comments } from './Comments';
+import { Comment } from './Comment';
 
 export const Post = ({ post }) => {
     const { loggedUser } = useContext(AuthContext);
@@ -41,16 +43,13 @@ export const Post = ({ post }) => {
                 <p className="description">
                     <span>{post.profileName} </span> {post.description}
                 </p>
+                {post.comments.length > 0
+                    ? post.comments.map(comment => <Comment key={comment.commentId} comment={comment} />)
+                    : ''}
             </div>
-            <div className="comment-wrapper">
-                <img src={loggedUser?.photoURL} className="icon" alt="" />
-                <input
-                    type="text"
-                    className="comment-box"
-                    placeholder="Add a comment"
-                />
-                <button className="comment-btn">post</button>
-            </div>
+            {loggedUser
+                ? <Comments postId={post.id} />
+                : ''}
         </div>
     );
 }

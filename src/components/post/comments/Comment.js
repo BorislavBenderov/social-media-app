@@ -2,6 +2,7 @@ import { arrayRemove, doc, updateDoc } from "firebase/firestore";
 import { database } from "../../../firebaseConfig";
 
 export const Comment = ({ comment, postId }) => {
+    
     const onDeleteComment = async () => {
         await updateDoc(doc(database, 'posts', postId), {
             comments: arrayRemove(comment)

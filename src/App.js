@@ -7,6 +7,7 @@ import { Register } from './components/auth/Register';
 import { CreatePost } from './components/create-edit/CreatePost';
 import { AuthContextProvider } from './contexts/AuthContext';
 import { PostContextProvider } from './contexts/PostContext';
+import { MyPosts } from './components/post/my-posts/MyPosts';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Nav />
           <Routes>
             <Route path='/' element={<Posts />} />
+            <Route path='/myposts' element={<MyPosts />} />
             <Route path='/login' element={<Login />} />
             <Route path='/register' element={<Register />} />
             <Route path='/create' element={<CreatePost />} />

@@ -6,18 +6,21 @@ import { Login } from './components/auth/Login';
 import { Register } from './components/auth/Register';
 import { CreatePost } from './components/create-edit/CreatePost';
 import { AuthContextProvider } from './contexts/AuthContext';
+import { PostContextProvider } from './contexts/PostContext';
 
 function App() {
   return (
     <AuthContextProvider>
       <div className="App">
-        <Nav />
-        <Routes>
-          <Route path='/' element={<Posts />} />
-          <Route path='/login' element={<Login />} />
-          <Route path='/register' element={<Register />} />
-          <Route path='/create' element={<CreatePost />} />
-        </Routes>
+        <PostContextProvider>
+          <Nav />
+          <Routes>
+            <Route path='/' element={<Posts />} />
+            <Route path='/login' element={<Login />} />
+            <Route path='/register' element={<Register />} />
+            <Route path='/create' element={<CreatePost />} />
+          </Routes>
+        </PostContextProvider>
       </div>
     </AuthContextProvider>
   );

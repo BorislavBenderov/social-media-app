@@ -131,6 +131,7 @@
     font-size: 16px;
     color: rgb(0, 162, 255);
     opacity: 0.5;
+    cursor: pointer;
 }
 
 .reaction-wrapper {
@@ -169,4 +170,9 @@
     width: 20px;
     border: none;
     border-radius: 50%;
+}
+
+.comment a {
+    margin-left: 10px;
+    cursor: pointer;
 }

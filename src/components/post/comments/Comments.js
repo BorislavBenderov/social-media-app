@@ -1,7 +1,7 @@
 import { arrayUnion, doc, updateDoc } from 'firebase/firestore';
 import { useContext, useState } from 'react';
-import { AuthContext } from '../../contexts/AuthContext';
-import { database } from '../../firebaseConfig';
+import { AuthContext } from '../../../contexts/AuthContext';
+import { database } from '../../../firebaseConfig';
 import { v4 as uuidv4 } from 'uuid';
 
 export const Comments = ({ postId }) => {
@@ -41,7 +41,7 @@ export const Comments = ({ postId }) => {
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
             />
-            <button className="comment-btn" onClick={onComment}>post</button>
+            <button className="comment-btn" onClick={onComment}>Post</button>
         </div>
     );
 }

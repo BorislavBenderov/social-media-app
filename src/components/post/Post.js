@@ -3,8 +3,8 @@ import { AuthContext } from '../../contexts/AuthContext';
 import { useContext } from 'react';
 import { deleteDoc, doc } from 'firebase/firestore';
 import { database } from '../../firebaseConfig';
-import { Comments } from './Comments';
-import { Comment } from './Comment';
+import { Comments } from './comments/Comments';
+import { Comment } from './comments/Comment';
 
 export const Post = ({ post }) => {
     const { loggedUser } = useContext(AuthContext);
@@ -44,7 +44,7 @@ export const Post = ({ post }) => {
                     <span>{post.profileName} </span> {post.description}
                 </p>
                 {post.comments.length > 0
-                    ? post.comments.map(comment => <Comment key={comment.commentId} comment={comment} />)
+                    ? post.comments.map(comment => <Comment key={comment.commentId} comment={comment} postId={post.id} />)
                     : ''}
             </div>
             {loggedUser

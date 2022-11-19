@@ -39,6 +39,8 @@ export const CreatePost = () => {
                             imageUrl: downloadURL,
                             timestamp: serverTimestamp(),
                             ownerId: loggedUser.uid,
+                            profilePic: loggedUser.photoURL,
+                            profileName: loggedUser.displayName,
                             likes: [],
                             comments: []
                         }

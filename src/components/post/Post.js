@@ -5,6 +5,7 @@ import { deleteDoc, doc } from 'firebase/firestore';
 import { database } from '../../firebaseConfig';
 import { Comments } from './comments/Comments';
 import { Comment } from './comments/Comment';
+import { Likes } from './likes/Likes';
 
 export const Post = ({ post }) => {
     const { loggedUser } = useContext(AuthContext);
@@ -36,10 +37,10 @@ export const Post = ({ post }) => {
             <img src={post.imageUrl} className="post-image" alt="" />
             <div className="post-content">
                 <div className="reaction-wrapper">
-                    <img src={PH} className="icon" alt="" />
+                    <Likes post={post}/>
                     <img src={PH} className="icon" alt="" />
                 </div>
-                <p className="likes">1,012 likes</p>
+                <p className="likes">{post.likes.length > 0 ? post.likes.length : ''}</p>
                 <p className="description">
                     <span>{post.profileName} </span> {post.description}
                 </p>

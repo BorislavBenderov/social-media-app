@@ -314,6 +314,7 @@
     align-items: center;
     top:-10px;
     right: -10px;
+    cursor: pointer;
 }
 
 .input-area{

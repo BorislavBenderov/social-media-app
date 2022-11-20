@@ -38,7 +38,6 @@ export const Post = ({ post }) => {
             <div className="post-content">
                 <div className="reaction-wrapper">
                     <Likes post={post}/>
-                    <img src={PH} className="icon" alt="" />
                 </div>
                 <p className="likes">{post.likes.length > 0 ? post.likes.length : ''}</p>
                 <p className="description">

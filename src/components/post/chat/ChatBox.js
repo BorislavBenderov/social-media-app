@@ -1,5 +1,5 @@
 import { doc, onSnapshot, updateDoc, arrayUnion } from "firebase/firestore";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { AuthContext } from "../../../contexts/AuthContext";
 import { database } from "../../../firebaseConfig";
 import { Message } from "./Message";
@@ -9,6 +9,7 @@ export const ChatBox = ({ id, setChatContainer }) => {
     const { loggedUser } = useContext(AuthContext);
     const [messages, setMessages] = useState([]);
     const [input, setInput] = useState();
+    const scroll = useRef();
 
     useEffect(() => {
         onSnapshot(doc(database, 'chats', id), (snapshot) => {
@@ -33,7 +34,8 @@ export const ChatBox = ({ id, setChatContainer }) => {
             })
         })
             .then(() => {
-                setInput('')
+                setInput('');
+                scroll.current.scrollIntoView({ behavior: 'smooth' });
             })
             .catch((err) => {
                 alert(err.message);
@@ -45,13 +47,12 @@ export const ChatBox = ({ id, setChatContainer }) => {
             <div className="chat-popup">
                 <div className="badge" onClick={() => setChatContainer(false)}>x</div>
                 <div className="chat-area">
-                    {messages.map(message => <Message key={message.id} message={message} />)}
+                    {messages.map(message => <Message key={message.id} message={message} scroll={scroll} />)}
                 </div>
                 <div className="input-area">
                     <input type="text"
                         onChange={(e) => setInput(e.target.value)}
                         value={input} />
-                    <button id="emoji-btn"> 🌝</button>
                     <button className="submit" onClick={onChat}>
                         {" "}
                         <i className="material-icons"> send</i>

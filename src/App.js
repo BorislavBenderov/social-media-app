@@ -10,6 +10,7 @@ import { PostContextProvider } from './contexts/PostContext';
 import { MyPosts } from './components/post/my-posts/MyPosts';
 import { Footer } from './components/footer/Footer';
 import { UserContextProvider } from './contexts/UserContext';
+import { ProtectedRoutes } from './ProtectedRoutes';
 
 function App() {
   return (
@@ -20,10 +21,12 @@ function App() {
             <Nav />
             <Routes>
               <Route path='/' element={<Posts />} />
-              <Route path='/myposts' element={<MyPosts />} />
+              <Route element={<ProtectedRoutes />}>
+                <Route path='/myposts' element={<MyPosts />} />
+                <Route path='/create' element={<CreatePost />} />
+              </Route>
               <Route path='/login' element={<Login />} />
               <Route path='/register' element={<Register />} />
-              <Route path='/create' element={<CreatePost />} />
             </Routes>
             <Footer />
           </UserContextProvider>

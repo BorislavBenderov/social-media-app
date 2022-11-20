@@ -44,9 +44,10 @@ export const MyPost = ({ post }) => {
                     <span>{post.profileName} </span> {post.description}
                 </p>
                 <div className='comment-all' onClick={() => setShowComments(true)}>
-                    {post.comments.length > 0 && showComments
-                        ? post.comments.map(comment => <Comment key={comment.commentId} comment={comment} postId={post.id} />)
-                        : <p>View comments</p>}
+                    {post.comments.length > 0
+                        ? !showComments
+                            ? <p>View comments</p> : post.comments.map(comment => <Comment key={comment.commentId} comment={comment} postId={post.id} />)
+                        : ''}
                 </div>
             </div>
             {loggedUser

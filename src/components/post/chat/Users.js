@@ -6,7 +6,7 @@ import { database } from "../../../firebaseConfig";
 
 export const Users = ({ user }) => {
     const { loggedUser } = useContext(AuthContext);
-    const [chatContainer, setChatContainer] = useState(null);
+    const [chatContainer, setChatContainer] = useState(false);
     const [id, setId] = useState(null);
 
     const handleSelect = async () => {
@@ -23,7 +23,7 @@ export const Users = ({ user }) => {
                 })
             }
 
-            setChatContainer(user);
+            setChatContainer(true);
             setId(combinedId);
         } catch (error) {
             alert(error.message);
@@ -43,8 +43,7 @@ export const Users = ({ user }) => {
                 <button className="action-btn" onClick={handleSelect}>Chat</button>
             </div>
             <div>
-                {chatContainer && <ChatBox id={id} />}
-                {console.log(chatContainer)}
+                {chatContainer && <ChatBox id={id} setChatContainer={setChatContainer}/>}
             </div>
         </>
 

@@ -5,7 +5,7 @@ import { database } from "../../../firebaseConfig";
 import { Message } from "./Message";
 import { v4 as uuidv4 } from 'uuid';
 
-export const ChatBox = ({ id }) => {
+export const ChatBox = ({ id, setChatContainer }) => {
     const { loggedUser } = useContext(AuthContext);
     const [messages, setMessages] = useState([]);
     const [input, setInput] = useState();
@@ -43,7 +43,7 @@ export const ChatBox = ({ id }) => {
     return (
         <section>
             <div className="chat-popup">
-                <div className="badge">1</div>
+                <div className="badge" onClick={() => setChatContainer(false)}>x</div>
                 <div className="chat-area">
                     {messages.map(message => <Message key={message.id} message={message} />)}
                 </div>

@@ -23,7 +23,6 @@ export const Nav = () => {
                 <Link to='/' className="icon" alt="myposts">
                     <span>Home</span>
                 </Link>
-                <input type="text" className="search-box" placeholder="search" />
                 <div className="nav-items">
                     {loggedUser
                         ? <><Link to='/myposts' className="icon" alt="myposts">

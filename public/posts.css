@@ -181,6 +181,12 @@
     padding: 20px;
 }
 
+.comment-all>p {
+    color: rgb(142, 142, 142);
+    font-weight: 400;
+    cursor: pointer;
+}
+
 .profile-card{
     width: fit-content;
     display: flex;

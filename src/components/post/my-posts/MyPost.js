@@ -1,5 +1,5 @@
 import PH from '../cover.png';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { AuthContext } from '../../../contexts/AuthContext';
 import { deleteDoc, doc } from 'firebase/firestore';
 import { database } from '../../../firebaseConfig';
@@ -9,6 +9,7 @@ import { Likes } from '../likes/Likes';
 
 export const MyPost = ({ post }) => {
     const { loggedUser } = useContext(AuthContext);
+    const [showComments, setShowComments] = useState(false);
     const isOwner = loggedUser?.uid === post.ownerId;
 
     const onDelete = async () => {
@@ -42,9 +43,11 @@ export const MyPost = ({ post }) => {
                 <p className="description">
                     <span>{post.profileName} </span> {post.description}
                 </p>
-                {post.comments.length > 0
-                    ? post.comments.map(comment => <Comment key={comment.commentId} comment={comment} postId={post.id} />)
-                    : ''}
+                <div className='comment-all' onClick={() => setShowComments(true)}>
+                    {post.comments.length > 0 && showComments
+                        ? post.comments.map(comment => <Comment key={comment.commentId} comment={comment} postId={post.id} />)
+                        : <p>View comments</p>}
+                </div>
             </div>
             {loggedUser
                 ? <Comments postId={post.id} />

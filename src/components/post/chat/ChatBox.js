@@ -8,7 +8,7 @@ import { v4 as uuidv4 } from 'uuid';
 export const ChatBox = ({ id, setChatContainer }) => {
     const { loggedUser } = useContext(AuthContext);
     const [messages, setMessages] = useState([]);
-    const [input, setInput] = useState();
+    const [input, setInput] = useState('');
     const scroll = useRef();
 
     useEffect(() => {

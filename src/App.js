@@ -9,6 +9,7 @@ import { AuthContextProvider } from './contexts/AuthContext';
 import { PostContextProvider } from './contexts/PostContext';
 import { MyPosts } from './components/post/my-posts/MyPosts';
 import { Footer } from './components/footer/Footer';
+import { NotFound } from './components/not-found/NotFound';
 import { UserContextProvider } from './contexts/UserContext';
 import { ProtectedRoutes } from './ProtectedRoutes';
 
@@ -20,6 +21,7 @@ function App() {
           <UserContextProvider>
             <Nav />
             <Routes>
+            <Route path='*' element={<NotFound />} />
               <Route path='/' element={<Posts />} />
               <Route element={<ProtectedRoutes />}>
                 <Route path='/myposts' element={<MyPosts />} />

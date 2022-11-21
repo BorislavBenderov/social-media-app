@@ -28,11 +28,6 @@ export const EditPost = () => {
         const formData = new FormData(e.target);
         const description = formData.get('description');
 
-        if (description === '') {
-            alert('Please fill the field.');
-            return;
-        }
-
         updateDoc(doc(database, 'posts', postId), {
             description
         })

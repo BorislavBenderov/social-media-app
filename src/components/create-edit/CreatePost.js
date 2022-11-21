@@ -18,7 +18,7 @@ export const CreatePost = () => {
         const imageUrl = formData.get('imageUrl');
         const description = formData.get('description');
 
-        if (description === '') {
+        if (description === '' || imageUrl.name === '') {
             alert('Please fill all the fields');
             return;
         }

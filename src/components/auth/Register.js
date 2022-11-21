@@ -21,7 +21,7 @@ export const Register = () => {
         const repeatPassword = formData.get('repeatPassword');
         const userImageUrl = formData.get('userImageUrl');
 
-        if (userName === '' || email === '' || password === '' || repeatPassword === '' || userImageUrl === '') {
+        if (userName === '' || email === '' || password === '' || repeatPassword === '' || userImageUrl.name === '') {
             alert('Please fill all the fields');
             return;
         }
@@ -38,8 +38,8 @@ export const Register = () => {
                         alert(err.message);
                     },
                     () => {
-                        getDownloadURL(uploadTask.snapshot.ref).
-                            then((downloadUrl) => {
+                        getDownloadURL(uploadTask.snapshot.ref)
+                            .then((downloadUrl) => {
                                 updateProfile(res.user, {
                                     displayName: userName,
                                     photoURL: downloadUrl
@@ -49,7 +49,6 @@ export const Register = () => {
                                     userImageUrl: downloadUrl,
                                     uid: res.user.uid
                                 });
-                                setDoc(doc(database, 'userChats', res.user.uid), {})
                             })
                     })
                 navigate('/');

@@ -19,7 +19,7 @@ export const Chat = () => {
                 <div>
                     <p className="username">{loggedUser.displayName}</p>
                 </div>
-                <Link to={`/edit/${loggedUser.uid}`} className="icon" alt="myposts">
+                <Link to={`/edit-user/${loggedUser.uid}`} className="icon" alt="myposts">
                     <span>Edit</span>
                 </Link>
             </div>

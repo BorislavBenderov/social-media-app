@@ -405,6 +405,10 @@ input[type="text"] {
     transform: translate(-50%);
 }
 
+.user-buttons>a {
+    margin-left: 10px;
+}
+
 @media (max-width: 1100px) {
 
     .nav-wrapper,

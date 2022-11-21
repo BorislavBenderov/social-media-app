@@ -5,6 +5,7 @@ import { Posts } from './components/post/Posts';
 import { Login } from './components/auth/Login';
 import { Register } from './components/auth/Register';
 import { CreatePost } from './components/create-edit/CreatePost';
+import { EditPost } from './components/create-edit/EditPost';
 import { AuthContextProvider } from './contexts/AuthContext';
 import { PostContextProvider } from './contexts/PostContext';
 import { MyPosts } from './components/post/my-posts/MyPosts';
@@ -25,9 +26,10 @@ function App() {
               <Route path='*' element={<NotFound />} />
               <Route path='/' element={<Posts />} />
               <Route element={<ProtectedRoutes />}>
-                <Route path='/edit/:userId' element={<EditUser />} />
+                <Route path='/edit-user/:userId' element={<EditUser />} />
                 <Route path='/myposts' element={<MyPosts />} />
                 <Route path='/create' element={<CreatePost />} />
+                <Route path='/edit/:postId' element={<EditPost />} />
               </Route>
               <Route path='/login' element={<Login />} />
               <Route path='/register' element={<Register />} />

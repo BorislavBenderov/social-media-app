@@ -1,4 +1,3 @@
-import PH from '../post/cover.png';
 import { AuthContext } from '../../contexts/AuthContext';
 import { useContext, useState } from 'react';
 import { deleteDoc, doc } from 'firebase/firestore';
@@ -6,6 +5,7 @@ import { database } from '../../firebaseConfig';
 import { Comments } from './comments/Comments';
 import { Comment } from './comments/Comment';
 import { Likes } from './likes/Likes';
+import { Link } from 'react-router-dom';
 
 export const Post = ({ post }) => {
     const { loggedUser } = useContext(AuthContext);
@@ -31,7 +31,10 @@ export const Post = ({ post }) => {
                     <p className="username">{post.profileName}</p>
                 </div>
                 {isOwner
-                    ? <a className="options" onClick={onDelete}>Delete</a>
+                    ? <div className='user-buttons'>
+                        <Link to={`/edit/${post.id}`} className="options">Edit</Link>
+                        <a className="options" onClick={onDelete}>Delete</a>
+                    </div>
                     : ''}
 
             </div>

@@ -21,10 +21,10 @@
 
 .post {
     width: 100%;
-    height: auto;
     background: #fff;
     border: 1px solid #dfdfdf;
     margin-top: 40px;
+    border-radius: 16px;
 }
 
 .info {
@@ -426,10 +426,7 @@ input[type="text"] {
     .post-image {
         height: 300px;
     }
-}
-
-@media (max-width: 800px) {
-    .chat-popup {
-        background-color: red;
+    .right-col {
+        padding: 0;
     }
 }

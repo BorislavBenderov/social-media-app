@@ -9,6 +9,7 @@ import { EditPost } from './components/create-edit/EditPost';
 import { AuthContextProvider } from './contexts/AuthContext';
 import { PostContextProvider } from './contexts/PostContext';
 import { MyPosts } from './components/post/my-posts/MyPosts';
+import { Footer } from './components/footer/Footer';
 import { EditUser } from './components/auth/EditUser';
 import { NotFound } from './components/not-found/NotFound';
 import { UserContextProvider } from './contexts/UserContext';
@@ -33,6 +34,7 @@ function App() {
               <Route path='/login' element={<Login />} />
               <Route path='/register' element={<Register />} />
             </Routes>
+            <Footer />
           </UserContextProvider>
         </PostContextProvider>
       </div>

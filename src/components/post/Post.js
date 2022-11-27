@@ -33,7 +33,7 @@ export const Post = ({ post }) => {
                 {isOwner
                     ? <div className='user-buttons'>
                         <Link to={`/edit/${post.id}`} className="options">Edit</Link>
-                        <a className="options" onClick={onDelete}>Delete</a>
+                        <Link className="options" onClick={onDelete}>Delete</Link>
                     </div>
                     : ''}
 
